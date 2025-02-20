@@ -16,3 +16,5 @@ class Ship {
     return this.sunk;
   }
 }
+
+export default Ship;
