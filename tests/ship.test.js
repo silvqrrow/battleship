@@ -1,4 +1,4 @@
-import Ship from "./ship";
+import Ship from "../src/ship";
 
 test("Ship should initialize with correct length and hit count", () => {
   const ship = new Ship(4);
