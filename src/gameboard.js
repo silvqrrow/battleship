@@ -15,6 +15,26 @@ class Gameboard {
       this.board.push(row);
     }
   }
+
+  #placeShip(ship, row1, col1, row2, col2) {
+    if (row1 == row2) {
+      // Horizontal Placement
+      const row = row1 - 1;
+      // subtract from col1 to repesct 0-indexing
+      for (let i = col1 - 1; i < col2; i++) {
+        this.board[row][i] = ship;
+      }
+    } else if (col1 == col2) {
+      // Vertical Placement
+      const col = col1 - 1;
+      // subtract from row to respect 0-indexing
+      for (let i = row1 - 1; i < row1; i++) {
+        this.board[i][col] = ship;
+      }
+    }
+  }
+
+  // note for the future; when making random ship placement, use 50/50 for one direction, same value for both
 }
 
 export default Gameboard;
