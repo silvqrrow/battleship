@@ -1,3 +1,5 @@
+import Ship from "../src/ship";
+
 class Gameboard {
   constructor() {
     this.rows = 10;

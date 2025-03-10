@@ -33,3 +33,16 @@ test("Vertical Placements of ships", () => {
   expect(gameboard.board[1][1]).toBe(0);
   expect(gameboard.board[3][0]).toBe(0);
 });
+
+test("receiveAttack should record a miss", () => {
+  const gameboard = new Gameboard();
+  const ship = new Ship(3);
+
+  gameboard.placeShip(ship, 1, 1, 1, 3);
+
+  // Attack a cell that does not contain a ship
+  gameboard.receiveAttack(2, 2);
+
+  // Check that the cell is marked as a miss
+  expect(gameboard.board[1][1]).toBe("X");
+});
