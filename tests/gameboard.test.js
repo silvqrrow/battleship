@@ -46,3 +46,17 @@ test("receiveAttack should record a miss", () => {
   // Check that the cell is marked as a miss
   expect(gameboard.board[1][1]).toBe("X");
 });
+
+test("allSunk should return true after all ships are sunk", () => {
+  const gameboard = new Gameboard();
+  const ship = new Ship(2);
+
+  gameboard.placeShip(ship, 1, 1, 1, 2);
+
+  // Hit the ship twice to sink it
+  gameboard.receiveAttack(1, 1);
+  gameboard.receiveAttack(1, 2);
+
+  // Check that all ships are sunk
+  expect(gameboard.allSunk()).toBe(true);
+});
