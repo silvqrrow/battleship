@@ -40,12 +40,23 @@ class Gameboard {
     const target = this.board[row - 1][col - 1];
     if (target instanceof Ship) {
       target.hit();
+      return true;
     } else {
       this.board[row - 1][col - 1] = "X";
+      return false;
     }
   }
 
-  // note for the future; when making random ship placement, use 50/50 for one direction, same value for both
+  allSunk() {
+    for (let row of this.board) {
+      for (let cell of row) {
+        if (cell instanceof Ship && !cell.isSunk()) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
 
 export default Gameboard;
