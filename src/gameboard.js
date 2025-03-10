@@ -16,7 +16,7 @@ class Gameboard {
     }
   }
 
-  #placeShip(ship, row1, col1, row2, col2) {
+  placeShip(ship, row1, col1, row2, col2) {
     if (row1 == row2) {
       // Horizontal Placement
       const row = row1 - 1;
@@ -28,9 +28,18 @@ class Gameboard {
       // Vertical Placement
       const col = col1 - 1;
       // subtract from row to respect 0-indexing
-      for (let i = row1 - 1; i < row1; i++) {
+      for (let i = row1 - 1; i < row2; i++) {
         this.board[i][col] = ship;
       }
+    }
+  }
+
+  receiveAttack(row, col) {
+    const target = this.board[row - 1][col - 1];
+    if (target instanceof Ship) {
+      target.hit();
+    } else {
+      this.board[row - 1][col - 1] = "X";
     }
   }
 
