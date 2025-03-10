@@ -6,3 +6,5 @@ class Player {
     this.gameboard = gameboard;
   }
 }
+
+export default Player;
