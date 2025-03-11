@@ -5,6 +5,14 @@ class Player {
     this.type = type;
     this.gameboard = gameboard;
   }
+
+  getPlayerGameboard() {
+    return this.gameboard;
+  }
+
+  getPlayerType() {
+    return this.type;
+  }
 }
 
 export default Player;
