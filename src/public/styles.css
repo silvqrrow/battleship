@@ -18,3 +18,49 @@ h1 {
   text-align: center;
   margin-top: 2rem;
 }
+
+.game__container {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.player-board,
+.computer-board {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(41, 41, 41);
+  background-color: rgb(240, 240, 240);
+}
+
+.ship-cell {
+  background-color: rgb(190, 231, 245);
+  border: 2px solid rgb(21, 21, 138);
+}
+
+.hit-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #a31d1d;
+  background: #ff6666;
+  font-size: 2rem;
+  color: rgb(87, 0, 0);
+}
+
+.miss-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  background: #353535;
+  font-size: 2rem;
+  color: rgb(236, 236, 236);
+}

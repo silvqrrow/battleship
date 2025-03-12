@@ -39,10 +39,11 @@ class Gameboard {
   receiveAttack(row, col) {
     const target = this.board[row - 1][col - 1];
     if (target instanceof Ship) {
+      this.board[row - 1][col - 1] = "X";
       target.hit();
       return true;
     } else {
-      this.board[row - 1][col - 1] = "X";
+      this.board[row - 1][col - 1] = ".";
       return false;
     }
   }
