@@ -67,6 +67,11 @@ class Gameboard {
     this.board = [];
     this.#initializeBoard(this.rows, this.columns);
   }
+
+  alreadyAttacked(row, col) {
+    const cell = this.board[row - 1][col - 1];
+    return cell === "X" || cell === ".";
+  }
 }
 
 export default Gameboard;

@@ -23,12 +23,26 @@ const GameController = function (
 
     if (opponentBoard.allSunk()) {
       gameOver = true;
-      return `${activePlayer.getPlayerType()} wins!`;
+      console.log(`${activePlayer.getPlayerType()} wins!`);
+      renderAll();
+      return;
     }
 
     switchPlayerTurn();
     renderAll();
-    return "continue";
+
+    // ⏳ Delay computer turn slightly for UX
+    if (activePlayer === playerTwo && !gameOver) {
+      setTimeout(() => {
+        let r, c;
+        do {
+          r = Math.floor(Math.random() * 10) + 1;
+          c = Math.floor(Math.random() * 10) + 1;
+        } while (playerGameboard.alreadyAttacked(r, c));
+
+        playRound(r, c);
+      }, 500);
+    }
   };
 
   const resetGame = () => {
