@@ -17,13 +17,22 @@ const GameController = function (
   const playRound = (row, column) => {
     if (gameOver) return;
 
+    if (playerGameboard.allSunk() && computerGameboard.allSunk()) {
+      gameOver = true;
+      document.querySelector(".result").textContent = "It's a tie!";
+      renderAll();
+      return;
+    }
+
     const opponentBoard =
       activePlayer === playerOne ? computerGameboard : playerGameboard;
     opponentBoard.receiveAttack(row, column);
 
     if (opponentBoard.allSunk()) {
       gameOver = true;
-      console.log(`${activePlayer.getPlayerType()} wins!`);
+      document.querySelector(
+        ".result"
+      ).textContent = `${activePlayer.getPlayerType()} wins!`;
       renderAll();
       return;
     }

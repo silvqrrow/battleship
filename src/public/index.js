@@ -30,5 +30,6 @@ game = GameController(
 renderAll();
 
 document.querySelector("button").addEventListener("click", () => {
+  document.querySelector(".result").textContent = ``;
   game.resetGame();
 });
