@@ -31,7 +31,6 @@ const GameController = function (
     switchPlayerTurn();
     renderAll();
 
-    // ⏳ Delay computer turn slightly for UX
     if (activePlayer === playerTwo && !gameOver) {
       setTimeout(() => {
         let r, c;
@@ -41,7 +40,7 @@ const GameController = function (
         } while (playerGameboard.alreadyAttacked(r, c));
 
         playRound(r, c);
-      }, 500);
+      }, 200);
     }
   };
 
