@@ -62,6 +62,11 @@ class Gameboard {
   getBoard() {
     return this.board;
   }
+
+  resetBoard() {
+    this.board = [];
+    this.#initializeBoard(this.rows, this.columns);
+  }
 }
 
 export default Gameboard;
